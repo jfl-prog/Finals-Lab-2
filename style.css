@@ -1,0 +1,74 @@
+body {
+  display: flex;
+  align-items: center;
+  background-color: #ccb07f;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.Box {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff0db;
+  width: 50vh;
+  height: 40vh;
+  margin: 0;
+  margin-left: 45vh;
+}
+
+h1 {
+  font-family: "Matemasie", sans-serif;
+  color: #3d2314;
+  margin: 40px 40px 0;
+}
+
+hr {
+  width: 80%;
+  margin: 20px 40px 0;
+  border: none;
+  border-top: 1px solid #3d2314;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  width: 50vh;
+  height: 40vh;
+  margin: 20px 40px 0;
+}
+
+.details h2 {
+  font-family: "Baskervville SC", serif;
+  font-weight: 100;
+  color: #582e1a;
+}
+
+.Box-2 {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff0db;
+  width: 30vh;
+  height: 40vh;
+  margin: 0;
+  margin-left: 2vh;
+}
+
+.Box-2 h1 {
+  font-family: "Matemasie", sans-serif;
+  color: #3d2314;
+  margin: 35px 75px 0;
+}
+
+.remark {
+  display: flex;
+  flex-direction: column;
+  width: 50vh;
+  height: 40vh;
+  margin: 20px 35px 0;
+}
+
+.remark h2 {
+  font-family: "Baskervville SC", serif;
+  font-weight: 100;
+  color: #582e1a;
+}

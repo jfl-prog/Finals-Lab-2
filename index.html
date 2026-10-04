@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Matemasie&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baskervville+SC:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Score Results Program</title>
+  </head>
+  <body>
+    <div class="Box">
+      <h1>Score Results</h1>
+      <hr />
+
+      <div class="details">
+        <h2>Name:</h2>
+        <h2>Score:</h2>
+        <h2>Remark:</h2>
+      </div>
+    </div>
+
+    <div class="Box-2">
+      <h1>Grading System</h1>
+
+      <div class="remark">
+        <h2>Excellent: 90–100</h2>
+        <h2>Score: 75–89</h2>
+        <h2>Remark: Below 75</h2>
+      </div>
+    </div>
+
+    <script>
+      function evaluateScore(score) {
+        if (isNaN(score) || score <= 0 || score > 100) {
+          return "Invalid score";
+        } else if (score >= 90) {
+          return "Excellent";
+        } else if (score >= 75) {
+          return "Passed";
+        } else {
+          return "Failed";
+        }
+      }
+
+      function displayResult(name, score, remark) {
+        const details = document.querySelectorAll(".details h2");
+        details[0].textContent = "Name: " + name;
+        details[1].textContent = "Score: " + score;
+        details[2].textContent = "Remark: " + remark;
+      }
+
+      function startProgram() {
+        alert("Welcome to the Score Results Program!");
+
+        let name = prompt("Please enter your name:");
+        if (name === null || name.trim() === "") {
+          alert("Invalid input: name cannot be empty.");
+          displayResult("N/A", "N/A", "Invalid input");
+          return;
+        }
+        name = name.trim();
+
+        let scoreInput = prompt("Please enter your score (1-100):");
+        if (scoreInput === null || scoreInput.trim() === "") {
+          alert("Invalid input: score cannot be empty.");
+          displayResult(name, "N/A", "Invalid score");
+          return;
+        }
+
+        const score = Number(scoreInput.trim());
+
+        if (isNaN(score)) {
+          alert("Invalid input: score must be a number.");
+        } else if (score === 0) {
+          alert("Invalid input: score cannot be zero.");
+        } else if (score < 0) {
+          alert("Invalid input: score cannot be negative.");
+        } else if (score > 100) {
+          alert("Invalid input: score cannot be higher than 100.");
+        }
+
+        const proceed = confirm("Do you want to continue and see your result?");
+        if (!proceed) {
+          alert("You chose not to continue. Goodbye, " + name + "!");
+          return;
+        }
+
+        const remark = evaluateScore(score);
+        displayResult(name, scoreInput.trim(), remark);
+      }
+
+      window.addEventListener("load", function () {
+        document.fonts.ready.then(function () {
+          setTimeout(startProgram, 100);
+        });
+      });
+    </script>
+  </body>
+</html>
